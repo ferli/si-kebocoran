@@ -1,0 +1,15 @@
+name = "si-kebocoran"
+compatibility_date = "2024-01-01"
+
+# Output directory for Pages
+pages_build_output_dir = "src"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "si-kebocoran-db"
+database_id = "" # Fill after creating DB with: wrangler d1 create si-kebocoran-db
+
+# Optional: WhatsApp webhook for notifications
+# [vars]
+# WA_WEBHOOK_URL = "https://your-whatsapp-webhook.com/send"

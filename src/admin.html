@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | SI-KEBOCORAN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>💧 SI-KEBOCORAN</h1>
+                <span class="badge">Admin</span>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="btn-link">📋 Form Publik</a>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalLaporan">0</div>
+                <div class="stat-label">Total Laporan</div>
+            </div>
+            <div class="stat-card stat-new">
+                <div class="stat-number" id="laporanBaru">0</div>
+                <div class="stat-label">Baru</div>
+            </div>
+            <div class="stat-card stat-process">
+                <div class="stat-number" id="laporanProses">0</div>
+                <div class="stat-label">Diproses</div>
+            </div>
+            <div class="stat-card stat-done">
+                <div class="stat-number" id="laporanSelesai">0</div>
+                <div class="stat-label">Selesai</div>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <select id="filterStatus">
+                <option value="">Semua Status</option>
+                <option value="baru">🔴 Baru</option>
+                <option value="proses">🟡 Diproses</option>
+                <option value="selesai">🟢 Selesai</option>
+            </select>
+            <button id="refreshBtn" class="btn-secondary">🔄 Refresh</button>
+        </div>
+
+        <div class="laporan-list" id="laporanList">
+            <div class="loading-placeholder">Memuat data...</div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detail Laporan</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <select id="updateStatus">
+                    <option value="baru">🔴 Baru</option>
+                    <option value="proses">🟡 Diproses</option>
+                    <option value="selesai">🟢 Selesai</option>
+                </select>
+                <button id="updateBtn" class="btn-primary">Perbarui Status</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

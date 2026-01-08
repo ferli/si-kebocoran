@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lapor Kebocoran Air | SI-KEBOCORAN</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">💧</div>
+      <h1>Lapor Kebocoran Air</h1>
+      <p class="subtitle">Laporkan kebocoran pipa di sekitar Anda</p>
+    </header>
+
+    <form id="laporForm" class="form-card">
+      <div class="form-group">
+        <label for="nama">Nama Pelapor *</label>
+        <input type="text" id="nama" name="nama" required placeholder="Nama lengkap Anda">
+      </div>
+
+      <div class="form-group">
+        <label for="telepon">Nomor Telepon *</label>
+        <input type="tel" id="telepon" name="telepon" required placeholder="08xxxxxxxxxx">
+      </div>
+
+      <div class="form-group">
+        <label for="alamat">Alamat Lokasi Kebocoran *</label>
+        <textarea id="alamat" name="alamat" required rows="3" placeholder="Jl. Contoh No. 123, RT/RW, Kelurahan, Kecamatan"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="deskripsi">Deskripsi Kebocoran</label>
+        <textarea id="deskripsi" name="deskripsi" rows="3" placeholder="Jelaskan kondisi kebocoran (besar/kecil, sudah berapa lama, dll)"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Lokasi GPS</label>
+        <div class="gps-section">
+          <button type="button" id="getLocationBtn" class="btn-secondary">
+            📍 Ambil Lokasi Saya
+          </button>
+          <div id="locationStatus" class="location-status"></div>
+          <input type="hidden" id="latitude" name="latitude">
+          <input type="hidden" id="longitude" name="longitude">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="foto">Foto Kebocoran</label>
+        <div class="photo-upload">
+          <input type="file" id="foto" name="foto" accept="image/*" capture="environment">
+          <div id="photoPreview" class="photo-preview"></div>
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn-primary">
+        📤 Kirim Laporan
+      </button>
+    </form>
+
+    <div id="successMessage" class="success-card hidden">
+      <div class="success-icon">✅</div>
+      <h2>Laporan Terkirim!</h2>
+      <p>Nomor Laporan: <strong id="ticketNumber"></strong></p>
+      <p>Tim kami akan segera menindaklanjuti laporan Anda.</p>
+      <button onclick="location.reload()" class="btn-secondary">Buat Laporan Baru</button>
+    </div>
+
+    <footer class="footer">
+      <p>SI-KEBOCORAN &copy; 2026 | <a href="https://fdiskandar.com">fdiskandar.com</a></p>
+    </footer>
+  </div>
+
+  <script src="js/form.js"></script>
+</body>
+</html>
