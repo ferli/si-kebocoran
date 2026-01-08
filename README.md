@@ -5,6 +5,11 @@ Sistem Pelaporan Kebocoran Air Berbasis Komunitas untuk PDAM Indonesia 💧
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/ferli/si-kebocoran)
 
+> **⚠️ STATUS: PROOF OF CONCEPT (PoC).**
+> Versi live di `laporkebocoran.fdiskandar.com` hanya untuk **Demonstrasi Edukatif**. Data bersifat simulasi. Penulis tidak bertanggung jawab atas penggunaan operasional tanpa supervisi resmi. PDAM yang ingin mengadopsi wajib melakukan instalasi mandiri.
+
+> **⚠️ PENTING:** Versi live di `laporkebocoran.fdiskandar.com` adalah **Demo/Proof of Concept**. Data yang masuk ke sana bersifat simulasi dan tidak terhubung ke operasional nyata. Untuk penggunaan produksi di PDAM Anda, silakan deploy instance sendiri.
+
 ## 🎯 Masalah
 Tingkat Kehilangan Air (NRW) di Indonesia rata-rata masih di atas 40%. Salah satu penyebab utamanya adalah **keterlambatan laporan kebocoran fisik**. Warga sering bingung harus lapor ke mana, atau laporan mereka tidak ditindaklanjuti karena lokasi kurang jelas.
 
@@ -12,6 +17,7 @@ Tingkat Kehilangan Air (NRW) di Indonesia rata-rata masih di atas 40%. Salah sat
 Aplikasi web sederhana (PWA) yang memungkinkan warga melaporkan kebocoran dalam < 1 menit.
 - **Akurasi Tinggi**: Menggunakan GPS smartphone + pilihan manual di peta.
 - **Bukti Valid**: Wajib foto real-time.
+- **Admin Dashboard**: Tersedia di `/admin.html` untuk validasi laporan.
 - **Zero Cost**: Menggunakan infrastruktur serverless graits (Cloudflare).
 
 ## 🛠️ Arsitektur Teknologi
@@ -20,7 +26,19 @@ Aplikasi ini dibangun dengan konsep **Modern Serverless**:
 - **Frontend**: HTML5, CSS3, Vanilla JS (Tanpa framework berat).
 - **Backend API**: Cloudflare Pages Functions (Serverless).
 - **Database**: Cloudflare D1 (SQLite at the Edge).
-- **Hosting**: Cloudflare Pages.
+- **Hosting**: Cloudflare Pages / Self-Hosted Ubuntu.
+
+## 🛡️ Filosofi: Mengapa FOSS?
+
+Banyak solusi "Smart City" di pasaran berupa **SaaS (Software as a Service)** gratis, namun seringkali memiliki biaya tersembunyi: **Data Warga Anda**.
+
+Provider SaaS publik sering melakukan *Data Harvesting* untuk tujuan komersial atau analitik pihak ketiga. Sebagai entitas publik (BUMD), PDAM memiliki kewajiban moral dan hukum untuk melindungi privasi pelanggan.
+
+**Solusi ini berbeda:**
+1.  **Anti Data-Harvesting**: Kode terbuka, database milik Anda. Tidak ada tracker tersembunyi.
+2.  **Memanfaatkan Aset Lama**: Tidak perlu beli server baru. Manfaatkan server/PC bekas di kantor sebagai server lokal (Linux/WSL).
+3.  **Kepatuhan Regulasi**: Penuhi kedaulatan data sesuai PP 71/2019 dengan menyimpan data secara fisik di kantor PDAM.
+
 
 ## 📖 Panduan Implementasi (Self-Hosting)
 
@@ -169,5 +187,11 @@ pm2 logs kebocoran-app
 ## 🤝 Kontribusi
 Project ini Open Source. Silakan fork dan kirim Pull Request jika ada perbaikan.
 
-## 📄 Lisensi
-MIT License - Bebas digunakan dan dimodifikasi untuk tujuan komersial maupun non-komersial oleh PDAM manapun.
+## 📄 Lisensi & Disclaimer (Hukum)
+
+**Lisensi:** MIT License - Bebas digunakan dan dimodifikasi untuk tujuan komersial maupun non-komersial.
+
+**DISCLAIMER (SANGKALAN HUKUM):**
+1.  **Inisiatif Pribadi**: Aplikasi ini dibuat sebagai kontribusi *Open Source* pribadi/komunitas dan BUKAN merupakan produk resmi/mandat langsung dari manajemen PDAM manapun kecuali diadopsi secara resmi melalui SK Direksi.
+2.  **Tanpa Jaminan**: Perangkat lunak ini disediakan "APA ADANYA" (AS IS), tanpa jaminan apapun. Penulis/Kontributor tidak bertanggung jawab atas kesalahan data, kegagalan sistem, atau tuntutan hukum yang timbul dari penggunaan aplikasi ini.
+3.  **Tanggung Jawab Pengguna**: Pengguna (PDAM/Instansi) bertanggung jawab penuh atas kepatuhan terhadap regulasi yang berlaku (termasuk UU ITE dan PP 71/2019) dalam pengoperasian aplikasi ini.

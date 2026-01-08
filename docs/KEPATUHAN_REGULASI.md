@@ -36,7 +36,8 @@ Karena PDAM Anda memiliki **Server Mandiri** (On-Premise), ini adalah solusi ter
 
 ### Opsi A: Self-Hosting (Rekomendasi Utama)
 Gunakan infrastruktur server fisik PDAM (Ubuntu/WSL).
-*   **Kepatuhan:** 100% Patuh. Data fisik berada di kantor PDAM.
+*   **Kepatuhan:** 100% Patuh. Data fisik berada di kantor PDAM, bukan di "Cloud Publik" yang rawan Data Harvesting.
+*   **Efisiensi Aset:** Memanfaatkan server/PC yang sudah ada (Sunk Cost), tanpa biaya langganan SaaS tahunan.
 *   **Cara:** Gunakan versi Node.js dari aplikasi ini (lihat panduan `README.md` bagian "Instalasi Server Mandiri").
 *   **Database:** SQLite Lokal berada di harddisk server Anda.
 
@@ -62,6 +63,11 @@ Jika Anda menggunakan aplikasi **Laporan Kebocoran PDAM** versi *Open Source* in
     Wajib migrasi database.
     *   Tarik data secara berkala (backup) ke server lokal.
     *   Atau modifikasi kode untuk menembak API server lokal (On-Premise).
+
+---
+
+### ⚠️ Disclaimer Hukum (Penting)
+Analisis ini disusun sebagai **kajian akademis/rekomendasi teknis** dan BUKAN merupakan nasihat hukum yang mengikat. Penulis (sebagai inisiator proyek Open Source) tidak bertanggung jawab atas sanksi regulasi yang mungkin timbul. Direksi disarankan berkonsultasi dengan Biro Hukum internal sebelum implementasi skala penuh.
 
 <div class="warning-box">
   <h3>Kesimpulan Audit</h3>
