@@ -1,0 +1,12 @@
+name = "si-kebocoran-cleaner"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+account_id = "b532b7f2912700b7358643847ea47757"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "si-kebocoran-db"
+database_id = "e17bf3d0-8ea4-4435-979c-a1e8b4a1d16e"
+
+[triggers]
+crons = ["0 17 * * *"] # 17:00 UTC = 00:00 WIB
