@@ -18,7 +18,7 @@ export async function onRequestPatch(context) {
             });
         }
 
-        const validStatuses = ['baru', 'proses', 'selesai'];
+        const validStatuses = ['baru', 'proses', 'selesai', 'ditolak'];
         if (!validStatuses.includes(status)) {
             return new Response(JSON.stringify({
                 error: 'Status tidak valid'

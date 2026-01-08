@@ -1,0 +1,18 @@
+{
+    "name": "laporan-kebocoran-pdam",
+    "version": "1.0.0",
+    "description": "Aplikasi Pelaporan Kebocoran PDAM (Self-Hosted Version)",
+    "main": "server-local.js",
+    "scripts": {
+        "start": "node server-local.js",
+        "dev": "nodemon server-local.js"
+    },
+    "dependencies": {
+        "better-sqlite3": "^11.0.0",
+        "cors": "^2.8.5",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.11"
+    }
+}

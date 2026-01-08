@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS laporan (
   latitude REAL,
   longitude REAL,
   foto_url TEXT,
-  status TEXT DEFAULT 'baru' CHECK (status IN ('baru', 'proses', 'selesai')),
+  status TEXT DEFAULT 'baru' CHECK (status IN ('baru', 'proses', 'selesai', 'ditolak')),
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

@@ -8,7 +8,7 @@ pages_build_output_dir = "src"
 [[d1_databases]]
 binding = "DB"
 database_name = "si-kebocoran-db"
-database_id = "" # Fill after creating DB with: wrangler d1 create si-kebocoran-db
+database_id = "e17bf3d0-8ea4-4435-979c-a1e8b4a1d16e"
 
 # Optional: WhatsApp webhook for notifications
 # [vars]

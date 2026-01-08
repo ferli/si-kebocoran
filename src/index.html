@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lapor Kebocoran Air | SI-KEBOCORAN</title>
+  <title>Lapor Kebocoran PDAM</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="container">
     <header class="header">
       <div class="logo">💧</div>
-      <h1>Lapor Kebocoran Air</h1>
+      <h1>💧 Laporan Kebocoran PDAM</h1>
       <p class="subtitle">Laporkan kebocoran pipa di sekitar Anda</p>
     </header>
 
@@ -27,21 +31,35 @@
 
       <div class="form-group">
         <label for="alamat">Alamat Lokasi Kebocoran *</label>
-        <textarea id="alamat" name="alamat" required rows="3" placeholder="Jl. Contoh No. 123, RT/RW, Kelurahan, Kecamatan"></textarea>
+        <textarea id="alamat" name="alamat" required rows="3"
+          placeholder="Jl. Contoh No. 123, RT/RW, Kelurahan, Kecamatan"></textarea>
       </div>
 
       <div class="form-group">
         <label for="deskripsi">Deskripsi Kebocoran</label>
-        <textarea id="deskripsi" name="deskripsi" rows="3" placeholder="Jelaskan kondisi kebocoran (besar/kecil, sudah berapa lama, dll)"></textarea>
+        <textarea id="deskripsi" name="deskripsi" rows="3"
+          placeholder="Jelaskan kondisi kebocoran (besar/kecil, sudah berapa lama, dll)"></textarea>
       </div>
 
       <div class="form-group">
         <label>Lokasi GPS</label>
         <div class="gps-section">
-          <button type="button" id="getLocationBtn" class="btn-secondary">
-            📍 Ambil Lokasi Saya
-          </button>
+          <div class="gps-buttons">
+            <button type="button" id="getLocationBtn" class="btn-secondary">
+              📍 Ambil Lokasi Saya
+            </button>
+            <button type="button" id="openMapBtn" class="btn-outline">
+              🗺️ Pilih di Peta
+            </button>
+          </div>
           <div id="locationStatus" class="location-status"></div>
+
+          <!-- Map Container (Hidden by default) -->
+          <div id="mapContainer" class="map-container hidden">
+            <div id="map"></div>
+            <p class="map-hint">Geser pin ke lokasi kebocoran</p>
+          </div>
+
           <input type="hidden" id="latitude" name="latitude">
           <input type="hidden" id="longitude" name="longitude">
         </div>
@@ -69,10 +87,13 @@
     </div>
 
     <footer class="footer">
-      <p>SI-KEBOCORAN &copy; 2026 | <a href="https://fdiskandar.com">fdiskandar.com</a></p>
+      <p>Laporan Kebocoran PDAM &copy; 2026 | <a href="https://fdiskandar.com">fdiskandar.com</a></p>
     </footer>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/form.js"></script>
 </body>
+
 </html>

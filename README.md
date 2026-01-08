@@ -88,10 +88,83 @@ wrangler pages deploy src --project-name laporan-pdam
 
 Selamat! Aplikasi Anda sudah live di `https://laporan-pdam.pages.dev`.
 
+## 🏢 Panduan Instalasi Server Mandiri (Ubuntu/Linux)
+
+Jika PDAM memiliki kebijakan **Data Localization** ketat atau memiliki infrastruktur server sendiri (On-Premise), gunakan mode ini untuk kepatuhan penuh terhadap PP 71/2019.
+
+### 1. Persiapan Server
+Pastikan server (Ubuntu/CentOS/WSL) sudah terinstall `Node.js` (v18+) dan `git`.
+```bash
+# Ubuntu/Debian
+sudo apt update
+sudo apt install nodejs npm git
+```
+
+### 2. Install Aplikasi
+Download source code dan install dependensi lokal:
+```bash
+git clone https://github.com/ferli/si-kebocoran.git
+cd si-kebocoran
+npm install
+```
+
+### 3. Konfigurasi & Jalankan
+Aplikasi akan menggunakan database SQLite lokal (`local-database.sqlite`) yang tersimpan di server Anda sendiri.
+
+```bash
+# Jalankan server
+npm start
+# Output: Server running at http://localhost:3000
+```
+Sekarang aplikasi bisa diakses via browser di `http://IP-SERVER:3000`.
+
+### 4. Setup Service (Agar Auto-Start)
+Gunakan PM2 agar aplikasi tetap berjalan 24/7 meskipun server restart:
+```bash
+sudo npm install -g pm2
+pm2 start server-local.js --name "kebocoran-app"
+pm2 save
+pm2 startup
+```
+
 ## ⚙️ Kustomisasi
 - **Logo & Judul**: Edit `src/index.html`.
 - **Warna**: Edit `src/css/style.css` (Ganti variabel CSS root).
 - **WhatsApp Notifikasi**: (Opsional) Uncomment fitur webhook di `functions/api/laporan.js` jika ingin menghubungkan ke WhatsApp Gateway.
+
+## 📚 Dokumentasi Lengkap (Long-Term Implementation)
+
+Untuk keberhasilan implementasi jangka panjang, kami menyertakan panduan strategi & manajemen di folder `docs/`:
+
+| Dokumen | Deskripsi |
+|---------|-----------|
+| **[📘 SOP Manajemen & SLA](docs/SOP_MANAJEMEN.md)** | Standard Operating Procedure, Matriks SLA, dan Alur Eskalasi. |
+| **[⚖️ Kepatuhan Regulasi](docs/KEPATUHAN_REGULASI.md)** | Analisis PP 71/2019, UU PDP, dan Strategi Arsitektur Data. |
+| **[👔 Strategi Direksi](docs/STRATEGI_DIREKSI.md)** | Memo untuk Pimpinan tentang Change Management & Budaya Kerja. |
+
+## 🛡️ Maintenance & Operasional (Jangka Panjang)
+
+### 1. Backup Database (Mode Self-Hosted)
+Database lokal tersimpan di file `local-database.sqlite`.
+**Rekomendasi:** Buat cron job untuk copy file ini ke cloud storage/NAS setiap malam.
+```bash
+# Contoh cron job (tiap jam 12 malam)
+0 0 * * * cp /path/to/app/local-database.sqlite /mnt/backup/db_$(date +\%F).sqlite
+```
+
+### 2. Update Aplikasi
+Untuk mendapatkan fitur terbaru atau security patch:
+```bash
+git pull origin main
+npm install
+pm2 restart kebocoran-app
+```
+
+### 3. Monitoring
+Cek logs aplikasi jika ada error:
+```bash
+pm2 logs kebocoran-app
+```
 
 ## 🤝 Kontribusi
 Project ini Open Source. Silakan fork dan kirim Pull Request jika ada perbaikan.

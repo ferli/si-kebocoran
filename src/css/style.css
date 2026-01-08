@@ -96,7 +96,45 @@ body {
 .gps-section {
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gps-buttons {
+  display: flex;
   gap: 0.5rem;
+}
+
+.gps-buttons button {
+  flex: 1;
+}
+
+.map-container {
+  height: 300px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.map-hint {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.8);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  z-index: 1000;
+  pointer-events: none;
 }
 
 .location-status {
@@ -110,6 +148,22 @@ body {
 
 .location-status.error {
   color: var(--danger);
+}
+
+.btn-outline {
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--bg-card);
+  border-color: var(--text-muted);
 }
 
 .photo-upload input[type="file"] {
@@ -228,5 +282,7 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }

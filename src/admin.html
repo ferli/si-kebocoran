@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | SI-KEBOCORAN</title>
+    <title>Admin Dashboard | Laporan Kebocoran PDAM</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
@@ -13,7 +13,7 @@
     <div class="admin-container">
         <header class="admin-header">
             <div class="header-left">
-                <h1>💧 SI-KEBOCORAN</h1>
+                <h1>💧 Laporan Kebocoran PDAM</h1>
                 <span class="badge">Admin</span>
             </div>
             <div class="header-right">
@@ -46,6 +46,7 @@
                 <option value="baru">🔴 Baru</option>
                 <option value="proses">🟡 Diproses</option>
                 <option value="selesai">🟢 Selesai</option>
+                <option value="ditolak">⚫ Ditolak</option>
             </select>
             <button id="refreshBtn" class="btn-secondary">🔄 Refresh</button>
         </div>
@@ -68,6 +69,7 @@
                     <option value="baru">🔴 Baru</option>
                     <option value="proses">🟡 Diproses</option>
                     <option value="selesai">🟢 Selesai</option>
+                    <option value="ditolak">⚫ Ditolak (Hoaks/Spam)</option>
                 </select>
                 <button id="updateBtn" class="btn-primary">Perbarui Status</button>
             </div>
